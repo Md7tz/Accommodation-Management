@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin login</title>
+    <link rel="stylesheet" href="/public/css/reset.css">
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container-fluid p-md-5 pt-3 d-flex flex-column align-items-center justify-content-center">
+        <div class="row">
+            <div class="col-12">
+                <div class="text-center m-b-md custom-login">
+                    <img class="" alt="" />
+                    <h1>Admin Login</h1>
+                    <p>Login to your dashboard and manage Student Accommodation</p>
+                </div>
+                <section>
+                    <form>
+                        <div class="row">
+                            <div class="col-12 mb-3">
+                                <label class="mb-2" name="email">Email Address</label>
+                                <input type="email" class="form-control" placeholder="Enter your Email Address" required />
+                            </div>
+
+                            <div class="col-12 mb-3">
+                                <label class="mb-2">Password</label>
+                                <input type="password" name="password" class="form-control" placeholder="Enter your password" required minlength="6"/>
+                                <a href="#" class="float-end text-muted">Forgot password?</a>
+                            </div>
+
+                            <div class="text-center mb-3">
+                                <button type="submit" class="btn btn-dark me-3">Login</button>
+                                <a href="auth/register" class="btn btn-outline-primary">Register</a>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="row mg-t-15">
+        <div class="col-md-12 col-md-12 col-sm-12 col-12 text-center">
+            <p>Copyright © 2022 Student Accomodation™ All rights reserved.</p>
+        </div>
+    </div>
+    </div>
+    <script src="/public/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+/* CSS for UI elements */
+
+@import 'variables.css';
+
+#brand-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+#brand { font-size: 30px; }
+
+#brand-img { width: 30px; }
+
+header {
+    background-color: var(--header-bg-color);
+    color: white;
+}
+
+/* Search */
+
+#searchresults a {
+    text-decoration: none;
+}
+
+mark {
+    border-radius: 2px;
+    padding: 0 3px 1px 3px;
+    margin: 0 -3px -1px -3px;
+    background-color: var(--search-mark-bg);
+    transition: background-color 300ms linear;
+    cursor: pointer;
+}
+
+.searchbar-outer {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--content-max-width);
+}
+
+#searchbar {
+    width: 100%;
+    margin: 5px auto 0px auto;
+    padding: 10px 16px;
+    transition: box-shadow 300ms ease-in-out;
+    border: 1px solid var(--searchbar-border-color);
+    border-radius: 3px;
+    background-color: var(--searchbar-bg);
+    color: var(--searchbar-fg);
+}
+#searchbar:focus,
+#searchbar.active {
+    box-shadow: 0 0 3px var(--searchbar-shadow-color);
+}
+
+.searchresults-header {
+    font-weight: bold;
+    font-size: 1em;
+    padding: 18px 0 0 5px;
+    color: var(--searchresults-header-fg);
+}
+
+/* side menu */
+
+.side-menu {
+    width:14em;
+    height: auto;
+    margin:4em auto 0;
+    font-size: 1em;
+    line-height: 2em;
+    color: #fff;
+    font-weight:700;
+    text-transform:uppercase;
+    position:absolute;
+    top:0; 
+    bottom:0;
+    left: -10em;
+}
+
+.side-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.side-menu ul li {
+    display:block;
+    background-color: #333;
+    height: 3em;
+    padding: 1em 1.5em;
+    position: relative;
+    -webkit-transition: -webkit-transform 0.5s,     background-color .5s, color .5s;
+    transition: transform .5s, background-color .5s, color .5s;
+}
+/*the colors of the different columns*/
+.side-menu ul li:nth-child(1) { background-color: var(--sidebar-color-lightblue) }
+.side-menu ul li:nth-child(2) { background-color: var(--sidebar-color-blue) }
+.side-menu ul li:nth-child(3) { background-color: var(--sidebar-color-lightgreen) }
+.side-menu ul li:nth-child(4) { background-color: var(--sidebar-color-green) }
+.side-menu ul li:nth-child(5) { background-color: var(--sidebar-color-yellow) }
+.side-menu ul li:nth-child(6) { background-color: var(--sidebar-color-red) }
+
+.side-menu ul li:hover {
+    background-color: var(--sidebar-color-highlight); 
+    -webkit-transform: translateX(10em);
+    transform: translateX(10em); /*equal to left in the .side-menu*/
+}
+.side-menu ul li a {
+    display:block;
+    color: #FFF;
+    text-decoration: none;
+}
+.side-menu ul li span {
+    display:block;
+    position: absolute;
+    font-size:1em;
+    line-height: 2em;
+    height:2em;
+    top:0; 
+    bottom:0;
+    margin:0 auto;
+    padding:1em 1.5em;
+    right: 0.16666666666667em;
+    color: #F8F6FF;
+}

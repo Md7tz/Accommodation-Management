@@ -1,15 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Student Accomodation</title>
     <link rel="stylesheet" href="/public/css/reset.css">
+    <link rel="stylesheet" href="/public/css/landing.css">
     <link rel="stylesheet" href="/public/css/bootstrap.min.css">
 </head>
-<body>
-    <div class="container-fluid"></div>
+
+<body class="d-flex h-100 text-center text-white bg-dark">
+    <div class="container-fluid">
+        <nav class="side-menu">
+            <ul>
+                <li><a href="#register-form">What to do?<span><i class="fa fa-map-marker"></i></span></a></li>
+                <li><a href="form.html">Accomodation<span><i class="fa fa-bed"></i></span></a></li>
+            </ul>
+        </nav>
+        <header class="row">
+            <div class="d-flex col-5-lg col-5-md col-5-sm col-5">
+                <a id="brand-link" class="d-flex" href="#">
+                    <h1 id="brand" class="p-2">Student Accomodation</h1>
+                    <img id="brand-img" src="/public/svg/house-svgrepo-com.svg" alt="house">
+                </a>
+            </div>
+            <div class="col-5-lg col-5-md col-5-sm col-5">
+                <div id="search-wrapper" class="p-1">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search for acommodation ..."
+                            aria-controls="searchresults-outer" aria-describedby="searchresults-header" class="">
+                    </form>
+                </div>
+            </div>
+            <div class="d-flex col-2-lg col-2-md col-2-sm col-2 align-items-center justify-content-center">
+                <div class="flex-shrink-0 dropdown">
+                    <a href="#" class="d-block link-white text-decoration-none dropdown-toggle" id="dropdownUser2"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="/public/svg/profile-svgrepo-com.svg" alt="profile-image" width="32" height="32"
+                            class="rounded-circle">
+                    </a>
+                    <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="#">Dashboard</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Sign out</a></li>
+                    </ul>
+                </div>
+                <a href="auth\login.html" class="btn btn-sm btn-outline-light ms-3">Login</a>
+            </div>
+        </header>
+        <div class="container col-xl-10 col-xxl-8 px-4 py-5">
+            <div class="row align-items-center g-lg-5 py-5">
+                <div class="col-lg-7 text-center text-lg-start">
+                    <h1 class="display-4 fw-bold lh-1 mb-3">Sign up to find our best deals</h1>
+                    <p class="col-lg-10 fs-4">Students are able to find luxury and comfort within one place. with our best deals!</p>
+                </div>
+                <div id="register-form" class="col-md-10 mx-auto col-lg-5 text-dark">
+                    <form class="p-4 p-md-5 border rounded-3 bg-light">
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">Email address</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword">Password</label>
+                        </div>
+                        <div class="checkbox mb-3">
+                            <label>
+                                <input type="checkbox" value="remember-me"> Remember me
+                            </label>
+                        </div>
+                        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
+                        <hr class="my-4">
+                        <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <footer class="mt-auto text-white-50">
+            <p>&copy; Copyright <span class="text-white">Student Accommodation</span>.</p>
+        </footer>
+    </div>
     <script src="/public/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
