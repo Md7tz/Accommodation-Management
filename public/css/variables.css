@@ -1,0 +1,15 @@
+
+/* Globals */
+
+:root {
+    --content-max-width: 750px;
+    --header-bg-color: rgb(34,38,53); 
+    --searchbar-border-color: #aaa;
+    --sidebar-color-lightblue: #00aced;
+    --sidebar-color-blue: #3b5998;
+    --sidebar-color-lightgreen: #00a300;
+    --sidebar-color-green: #1e7145;
+    --sidebar-color-yellow: #ffc40d;
+    --sidebar-color-red: #cb2027;
+    --sidebar-color-highlight: #339966;
+}
