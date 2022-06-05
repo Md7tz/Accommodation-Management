@@ -6,7 +6,7 @@ let timeout = null;
 let _search = "";
 
 // Dom elements
-const empty = document.createElement("div") || empty;
+const empty = document.createElement("div");
 const searchInput = document.getElementById("searchbar") || empty;
 const home = document.getElementById('brand-link') || empty;
 const loginBtn = document.getElementById('login-btn') || empty;
