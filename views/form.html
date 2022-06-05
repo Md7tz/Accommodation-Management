@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="/Accommodation-Management/public/css/reset.css">
     <link rel="stylesheet" href="/Accommodation-Management/public/css/landing.css">
     <link rel="stylesheet" href="/Accommodation-Management/public/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 
 <body class="bg-light">
-
     <div class="container-fluid">
         <header class="row d-flex justify-content-between">
             <div class="d-flex col-5-lg col-5-md col-5-sm col-5">
-                <a id="brand-link" class="d-flex" href="#">
+                <a id="brand-link" class="d-flex">
                     <h1 id="brand" class="p-2">Student Accomodation</h1>
                     <img id="brand-img" src="/Accommodation-Management/public/svg/house-svgrepo-com.svg" alt="house">
                 </a>
@@ -102,21 +102,23 @@
 
                             <div class="col-md-6 d-flex align-items-center">
                                 <span class='me-4'>Stay From</span>
-    
+
                                 <div class='me-4'>
                                     <input class='form-control' type="date" placeholder='from' name="from" />
                                 </div>
-    
+
                                 <span class='me-4'>To</span>
-    
+
                                 <div class='me-2'>
                                     <input class='form-control' type="date" placeholder='to' name="to" />
                                 </div>
-    
+
                                 <button type="button" class="btn btn-link me-4">
-                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="black" />
-                                    </svg>   
+                                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="black" />
+                                    </svg>
                                 </button>
                             </div>
                         </div>
@@ -128,6 +130,9 @@
             </div>
         </main>
         <script src="/Accommodation-Management/public/js/bootstrap.bundle.min.js"></script>
+        <script type="module" src="/Accommodation-Management/public/js/Main.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    </div>
 </body>
 
 </html>
