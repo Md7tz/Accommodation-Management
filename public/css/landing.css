@@ -5,9 +5,11 @@
 #brand-link {
     text-decoration: none;
     color: inherit;
+    width: 100%; 
+    cursor:pointer;
 }
 
-#brand { font-size: 30px; }
+#brand { font-size: 30px;}
 
 #brand-img { width: 30px; }
 
@@ -121,4 +123,25 @@ mark {
     padding:1em 1.5em;
     right: 0.16666666666667em;
     color: #F8F6FF;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2em;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    header {
+        display:grid !important;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr; 
+        /* justify-items: center;    */
+    }
+    #brand-container { text-align: center!important; grid-column-start: span 3;}
+    #search-container { grid-column-start: span 2; }
+    #profile-container { grid-column-start: span 1; }
+    .side-menu { margin:7.5em auto 0; }
 }
