@@ -1,6 +1,6 @@
 class Local {
     static setItem(key, value) { window.localStorage.setItem(key, value); }
-    static getItem(key) { window.localStorage.getItem(key); }
+    static getItem(key) { return window.localStorage.getItem(key); }
     static removeItem(key) { window.localStorage.removeItem(key); }
 
     static multiGet(keys) {
@@ -28,7 +28,7 @@ class Local {
 
 class Session {
     static setItem(key, value) { window.sessionStorage.setItem(key, value); }
-    static getItem(key) { window.sessionStorage.getItem(key); }
+    static getItem(key) { return window.sessionStorage.getItem(key); }
     static removeItem(key) { window.sessionStorage.removeItem(key); }
 
     static multiGet(keys) {
