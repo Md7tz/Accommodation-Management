@@ -1,5 +1,6 @@
 export default class Navigate {
-    static basepath(url) { return `${window.location.origin}/${url}`}
+    static basepath(url) { return `${window.location.origin}/${Navigate.subdir}/${url}`}
+    static get subdir () { return window.location.pathname.split('/', 2)[1]; }
 
     static push(url){
         window.location.assign(Navigate.basepath(url))
