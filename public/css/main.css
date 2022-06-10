@@ -13,16 +13,48 @@ table { border-collapse: collapse; border-spacing: 0;}
 
 @import 'variables.css';
 
-html { height: 100% !important; }
+/* Utilities */
+@font-face {
+    font-family: Montserrat;
+    src: url("../fonts/Montserrat-Regular.ttf");
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url("../fonts/Montserrat-Medium.ttf");
+    font-weight: 500;
+    font-style: normal
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url("../fonts/Montserrat-SemiBold.ttf");
+    font-weight: 600;
+    font-style: normal
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url("../fonts/Montserrat-Bold.ttf");
+    font-weight: 700;
+    font-style: normal
+}
+
+html, body { 
+    width: 100% !important;
+    height: 100% !important; 
+    font-family: Montserrat;
+}
 
 body {
-    height: 100% !important;
-    width: 100% !important;
     /* background: #000000;
     background: -moz-linear-gradient(top, #000000 0%, #2D2D2D 50%, #3C3C3C 100%);
     background: -webkit-linear-gradient(top, #000000 0%, #2D2D2D 50%, #3C3C3C 100%);
     background: linear-gradient(to bottom, #000000 0%, #2D2D2D 50%, #3C3C3C 100%); */
 
+    font: var(--body-font);
     background-color: #515151;
     opacity: 0.8;
     background: linear-gradient(135deg, #00000055 25%, transparent 25%) -40px 0/ 80px 80px, linear-gradient(225deg, #000000 25%, transparent 25%) -40px 0/ 80px 80px, linear-gradient(315deg, #00000055 25%, transparent 25%) 0px 0/ 80px 80px, linear-gradient(45deg, #000000 25%, #515151 25%) 0px 0/ 80px 80px;
