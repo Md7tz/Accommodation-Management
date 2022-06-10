@@ -1,9 +1,22 @@
 import LocalStorage, { SessionStorage } from './SyncStorage.js';
 import Navigate from './Navigate.js'
 import Toast  from './Toast.js';
+import Cookie from './Cookie.js';
 
 let timeout = null;
 let _search = "";
+
+/* Cookies */
+/* popup button handler */
+Cookie.on('.cookie-popup button', 'click', () => {
+    Cookie.el('.cookie-popup').classList.add('cookie-popup--accepted');
+    document.cookie = `cookie-accepted=true`
+});
+
+/* popup init handler */
+if (Cookie.cookie('cookie-accepted') !== "true") {
+    Cookie.el('.cookie-popup').classList.add('cookie-popup--not-accepted');
+}
 
 // Dom elements
 const empty = document.createElement("div");

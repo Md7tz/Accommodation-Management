@@ -6,26 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin login</title>
-    <link rel="stylesheet" href="/Accommodation-Management/public/css/reset.css">
     <link rel="stylesheet" href="/Accommodation-Management/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Accommodation-Management/public/css/main.css">
+    <link rel="stylesheet" href="/Accommodation-Management/public/css/cube.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 
 <body>
-    <div class="container-fluid p-md-5 pt-3 d-flex flex-column align-items-center justify-content-center">
+    <div class="container-fluid bg-white h-100 p-md-5 pt-3 d-flex flex-column align-items-center justify-content-center">
+        <div class="cube">
+            <div class="top"></div>
+            <div class="right"></div>
+            <div class="bottom"></div>
+            <div class="left"></div>
+            <div class="front"></div>
+            <div class="back"></div>
+        </div>
         <div class="row">
             <div class="col-12">
                 <div class="text-center m-b-md custom-login">
                     <img class="" alt="" />
                     <h1>Admin Login</h1>
-                    <p>Login to your dashboard and manage Student Accommodation</p>
+                    <p>Are you a student? Login to find our best deals and manage your dashboard</p>
                 </div>
                 <section>
-                    <form>
+                    <form class="needs-validation">
                         <div class="row">
                             <div class="col-12 mb-3">
-                                <label class="mb-2" name="email">Email Address</label>
-                                <input type="email" class="form-control" placeholder="Enter your Email Address" required />
+                                <label class="mb-2">Email Address</label>
+                                <input type="email" class="form-control" name="email" placeholder="Enter your Email Address" required />
                             </div>
 
                             <div class="col-12 mb-3">
@@ -36,7 +45,7 @@
 
                             <div class="text-center mb-3">
                                 <button type="submit" class="btn btn-dark me-3">Login</button>
-                                <a class="btn btn-outline-primary">Register</a>
+                                <a id="register-btn" class="btn btn-outline-primary">Register</a>
                             </div>
                         </div>
                     </form>
@@ -44,11 +53,11 @@
             </div>
         </div>
     </div>
-    <div class="row mg-t-15">
+    <footer class="row mg-t-15">
         <div class="col-md-12 col-md-12 col-sm-12 col-12 text-center">
             <p>Copyright © 2022 Student Accomodation™ All rights reserved.</p>
         </div>
-    </div>
+    </footer>
     </div>
     <script src="/Accommodation-Management/public/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="/Accommodation-Management/public/js/Main.js"></script>

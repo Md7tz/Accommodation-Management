@@ -2,6 +2,7 @@
 /* Globals */
 
 :root {
+    --body-font: 400 1rem Montserrat;
     --content-max-width: 750px;
     --header-bg-color: rgb(34,38,53); 
     --searchbar-border-color: #aaa;
