@@ -1,9 +1,22 @@
 import LocalStorage, { SessionStorage } from './SyncStorage.js';
 import Navigate from './Navigate.js'
 import Toast  from './Toast.js';
+import Cookie from './Cookie.js';
 
 let timeout = null;
 let _search = "";
+
+/* Cookies */
+/* popup button handler */
+Cookie.on('.cookie-popup button', 'click', () => {
+    Cookie.el('.cookie-popup').classList.add('cookie-popup--accepted');
+    document.cookie = `cookie-accepted=true`
+});
+
+/* popup init handler */
+if (Cookie.cookie('cookie-accepted') !== "true") {
+    Cookie.el('.cookie-popup').classList.add('cookie-popup--not-accepted');
+}
 
 // Dom elements
 const empty = document.createElement("div");
@@ -14,11 +27,11 @@ const registerBtn = document.getElementById('register-btn') || empty;
 const formBtn = document.getElementById('form-btn') || empty;
 
 // Event Listeners
-home.addEventListener('click', ()=>Navigate.replace('views/'))
+home.addEventListener('click', ()=>Navigate.push('views/'))
 searchInput.addEventListener('keyup', searchHandler);
-loginBtn.addEventListener('click', ()=>Navigate.replace('views/auth/login.html'))
-registerBtn.addEventListener('click', ()=>Navigate.replace('views/index.html#register-form'))
-formBtn.addEventListener('click', ()=>Navigate.replace('views/form.html'))
+loginBtn.addEventListener('click', ()=>Navigate.push('views/auth/login.html'))
+registerBtn.addEventListener('click', ()=>Navigate.push('views/index.html#register-form'))
+formBtn.addEventListener('click', ()=>Navigate.push('views/form.html'))
 
 /** @param {*} ms - milliseconds */
 function wait(ms) { return new Promise(resolve => setTimeout(resolve, ms)) };
