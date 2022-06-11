@@ -172,8 +172,19 @@ input[type=search] {
 }
 .side-menu ul li a {
     display:block;
-    color: #FFF;
+    color: transparent;
     text-decoration: none;
+}
+
+.side-menu ul li a:hover {
+    display:block;
+    text-decoration: none;
+    animation: textFadeIn .5s;
+    -webkit-animation: textFadeIn .5s;
+    -moz-animation: textFadeIn .5s;
+    -o-animation: textFadeIn .5s;
+    -ms-animation: textFadeIn .5s;
+    color: white;
 }
 .side-menu ul li span {
     display:block;
@@ -203,6 +214,7 @@ footer {
     padding: 10px 0 10px 0; 
 }
 
+/* Media queries */
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
     header {
@@ -217,4 +229,11 @@ footer {
     #profile-container { grid-column-start: span 1;  justify-content: center !important;}
     .side-menu { margin:7.5em auto 0; }
     textarea[name="message"] { width: 100% !important; }
+}
+
+/* Animation keyframes */
+@keyframes textFadeIn {
+    0% { color: rgba(255, 255, 255, 0)}
+    /* 50% { color: rgba(255, 255, 255, .5)} */
+    100% { color: rgba(255, 255, 255, 1)}
 }
