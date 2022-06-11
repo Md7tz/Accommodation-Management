@@ -25,6 +25,7 @@ const home = document.getElementById('brand-link') || empty;
 const loginBtn = document.getElementById('login-btn') || empty;
 const registerBtn = document.getElementById('register-btn') || empty;
 const formBtn = document.getElementById('form-btn') || empty;
+const dashboardBtn = document.getElementById('dashboard-btn') || empty;
 
 // Event Listeners
 home.addEventListener('click', ()=>Navigate.push('views/'))
@@ -32,6 +33,7 @@ searchInput.addEventListener('keyup', searchHandler);
 loginBtn.addEventListener('click', ()=>Navigate.push('views/auth/login.html'))
 registerBtn.addEventListener('click', ()=>Navigate.push('views/index.html#register-form'))
 formBtn.addEventListener('click', ()=>Navigate.push('views/form.html'))
+dashboardBtn.addEventListener('click', ()=>Navigate.push('views/dashboard.html'))
 
 /** @param {*} ms - milliseconds */
 function wait(ms) { return new Promise(resolve => setTimeout(resolve, ms)) };
