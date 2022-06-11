@@ -80,6 +80,8 @@ body {
 
 #brand-img { width: 30px; }
 
+#form-btn { cursor: pointer; }
+
 header { color: white;}
 
 /* Search */
