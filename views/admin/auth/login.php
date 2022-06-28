@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin login</title>
-    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/public/css/main.css">
-    <link rel="stylesheet" href="/public/css/cube.css">
+    <link rel="stylesheet" href="/<?php echo constant('URL_SUBFOLDER')?>/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/<?php echo constant('URL_SUBFOLDER')?>/public/css/main.css">
+    <link rel="stylesheet" href="/<?php echo constant('URL_SUBFOLDER')?>/public/css/cube.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 
@@ -19,8 +19,8 @@
             <div class="right"></div>
             <div class="bottom"></div>
             <div class="left"></div>
-            <div class="front"><img src="/public/img/login.png" width="50"></div>
-            <div class="back"><img src="/public/img/login.png" width="50"></div>
+            <div class="front"><img src="/<?php echo constant('URL_SUBFOLDER')?>/public/img/login.png" width="50"></div>
+            <div class="back"><img src="/<?php echo constant('URL_SUBFOLDER')?>/public/img/login.png" width="50"></div>
         </div>
         <div class="row">
             <div class="col-12">
@@ -58,8 +58,8 @@
         </div>
     </footer>
     </div>
-    <script src="/public/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="/public/js/Main.js"></script>
+    <script src="/<?php echo constant('URL_SUBFOLDER')?>/public/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/<?php echo constant('URL_SUBFOLDER')?>/public/js/Main.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 

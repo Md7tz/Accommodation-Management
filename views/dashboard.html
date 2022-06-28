@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student | dashboard</title>
-    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/public/css/main.css">
-    <link rel="stylesheet" href="/public/css/dashboard.css">    
+    <link rel="stylesheet" href="/<?php echo constant('URL_SUBFOLDER')?>/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/<?php echo constant('URL_SUBFOLDER')?>/public/css/main.css">
+    <link rel="stylesheet" href="/<?php echo constant('URL_SUBFOLDER')?>/public/css/dashboard.css">    
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 </head>
 
-<body>
+<body class="bg-none">
     <!-- <div class="area">sdsd</div> -->
     <div class="area container-fluid px-0 bg-white h-100 fw-bold">
         <header class="row align-items-center justify-content-around bg-black mx-0">    
@@ -71,7 +71,7 @@
             </li>
         </ul>
     </nav>
-    <script type="module" src="/public/js/Main.js"></script>
+    <script type="module" src="/<?php echo constant('URL_SUBFOLDER')?>/public/js/Main.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
 

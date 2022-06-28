@@ -65,9 +65,9 @@ body {
     opacity: 1 !important;
 }
 
-.container, .container-flex {
-    opacity: 1.0 !important;
-}
+.bg-none { background: none !important; }
+
+.container, .container-flex { opacity: 1.0 !important; }
 
 #brand-link {
     text-decoration: none;
@@ -76,7 +76,7 @@ body {
     cursor:pointer;
 }
 
-#brand { font-size: 30px;}
+#brand { font-size: 30px; }
 
 #brand-img { width: 30px; }
 
