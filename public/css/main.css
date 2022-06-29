@@ -206,6 +206,7 @@ input[type=search] {
 }
 
 .h-100 { height: 100%; }
+.w-fit { width: fit-content !important; }
 .bg-black { background-color: black;}
 
 textarea[name="message"] { width: 50%px !important; }
@@ -231,7 +232,7 @@ footer {
     }
     #brand-container { grid-column-start: span 1; justify-content: center !important;}
     /* #search-container { grid-column-start: span 2; } */
-    #profile-container { grid-column-start: span 1;  justify-content: center !important;}
+    #dropdown-container { grid-column-start: span 1;  justify-content: center !important;}
     .side-menu { margin:7.5em auto 0; }
     textarea[name="message"] { width: 100% !important; }
 }

@@ -1,6 +1,4 @@
-<?php include "../../config/db.php";
-
-session_start();
+<?php include "../../config/db.php"; session_start();
 
 $email = $password = "";
 $emailErr = $passwordErr = "";
@@ -40,27 +38,11 @@ if (isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student login</title>
-    <link rel="stylesheet" href="/<?php echo constant('URL_SUBFOLDER') ?>/public/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/<?php echo constant('URL_SUBFOLDER') ?>/public/css/main.css">
-    <link rel="stylesheet" href="/<?php echo constant('URL_SUBFOLDER') ?>/public/css/cube.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-</head>
+<?php include "../../inc/head.php"; ?>
 
 <body>
     <div class="container-fluid bg-white h-100 p-md-5 pt-3 d-flex flex-column align-items-center justify-content-center">
-        <div class="cube">
-            <div class="top"></div>
-            <div class="right"></div>
-            <div class="bottom"></div>
-            <div class="left"></div>
-            <div class="front"><img src="/<?php echo constant('URL_SUBFOLDER') ?>/public/img/login.png" width="50"></div>
-            <div class="back"><img src="/<?php echo constant('URL_SUBFOLDER') ?>/public/img/login.png" width="50"></div>
-        </div>
+        <?php include "../../inc/cube.php"; ?>
         <div class="row">
             <div class="col-12">
                 <div class="text-center m-b-md custom-login">
@@ -99,9 +81,7 @@ if (isset($_POST['submit'])) {
         </div>
     </footer>
     </div>
-    <script src="/<?php echo constant('URL_SUBFOLDER') ?>/public/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="/<?php echo constant('URL_SUBFOLDER') ?>/public/js/Main.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <?php include '../../inc/scripts.php' ?>
 </body>
 
 </html>
