@@ -30,7 +30,7 @@ const dashboardBtn = document.getElementById('dashboard-btn') || empty;
 // Event Listeners
 home.addEventListener('click', ()=>Navigate.push('ams/views/'))
 searchInput.addEventListener('keyup', searchHandler);
-loginBtn.addEventListener('click', ()=>Navigate.push('ams/views/auth/login.html'))
+loginBtn.addEventListener('click', ()=>Navigate.push('ams/views/auth/login.php'))
 registerBtn.addEventListener('click', ()=>Navigate.push('ams/views/index.html#register-form'))
 formBtn.addEventListener('click', ()=>Navigate.push('ams/views/form.php'))
 dashboardBtn.addEventListener('click', ()=>Navigate.push('ams/views/dashboard.html'))
