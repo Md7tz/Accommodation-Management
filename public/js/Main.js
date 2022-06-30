@@ -33,9 +33,9 @@ const dashboardBtn = document.getElementById('dashboard-btn') || empty;
 home.addEventListener('click', () => Navigate.push('ams/views/'));
 searchInput.addEventListener('keyup', searchHandler);
 loginBtn.addEventListener('click', () => Navigate.push('ams/views/auth/login.php'));
-registerBtn.addEventListener('click', () => Navigate.push('ams/views/index.PHP#register-form'));
+registerBtn.addEventListener('click', () => Navigate.push('ams/views/index.php#register-form'));
 formBtn.forEach(btn => btn.addEventListener('click', () => Navigate.push('ams/views/form.php')));
-dashboardBtn.addEventListener('click', () => Navigate.push('ams/views/dashboard.PHP'));
+dashboardBtn.addEventListener('click', () => Navigate.push('ams/views/dashboard.php'));
 
 /** @param {*} ms - milliseconds */
 function wait(ms) { return new Promise(resolve => setTimeout(resolve, ms)) };
