@@ -9,6 +9,7 @@ $exists = false;
 
 if (isset($_POST['submit'])) {
     # Validate Email
+    
     if (empty($_POST['email'])) {
         $emailErr = true;
     } else {
@@ -27,6 +28,7 @@ if (isset($_POST['submit'])) {
         $sql = "SELECT COUNT(*) as count FROM admins";
         $result = mysqli_query($conn, $sql);
         $admins = mysqli_fetch_assoc($result);
+
 
         if ($admins['count'] == 0) {
             // Check if user already exists
