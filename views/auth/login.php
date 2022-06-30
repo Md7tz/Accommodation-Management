@@ -20,17 +20,28 @@ if (isset($_POST['submit'])) {
     }
 
     if (empty($emailErr) && empty($passwordErr)) {
-        // login user if exists
-        $sql = "SELECT id, email, role, COUNT(*) AS count FROM users WHERE email = '$email' AND password = '$password'";
+        
+        // Login user if exists
+        $sql = "SELECT id, email, role, password, COUNT(*) AS count FROM users WHERE email = '$email'";
         $result = mysqli_query($conn, $sql);
         $user = mysqli_fetch_assoc($result);
+        
+        // Check if Email does not exist
         $notExist = (int)$user['count'] == 0;
-        $_SESSION['user'] = array(
-            'id' => $user['id'],
-            'email' => $user['email'],
-            'role' => $user['role']
-        );
-        if (!$notExist) header("location: /" . URL_SUBFOLDER . "/views/index.php");
+        
+        // Check if password does'nt match
+        $hashed_password = $user['password'];
+        $notExist = !password_verify($password, $hashed_password);
+
+        if (!$notExist) {
+            $_SESSION['user'] = array(
+                'id' => $user['id'],
+                'email' => $user['email'],
+                'role' => $user['role']
+            );
+
+            header("location: /" . URL_SUBFOLDER . "/views/index.php");
+        }
     }
 }
 ?>

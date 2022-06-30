@@ -7,7 +7,6 @@ let timeout = null;
 let _search = "";
 
 if (window.location.pathname === "/ams/views/index.php") {
-
     /* Cookies */
     /* popup button handler */
     Cookie.on('.cookie-popup button', 'click', () => {
@@ -34,9 +33,9 @@ const dashboardBtn = document.getElementById('dashboard-btn') || empty;
 home.addEventListener('click', () => Navigate.push('ams/views/'));
 searchInput.addEventListener('keyup', searchHandler);
 loginBtn.addEventListener('click', () => Navigate.push('ams/views/auth/login.php'));
-registerBtn.addEventListener('click', () => Navigate.push('ams/views/index.html#register-form'));
+registerBtn.addEventListener('click', () => Navigate.push('ams/views/index.PHP#register-form'));
 formBtn.forEach(btn => btn.addEventListener('click', () => Navigate.push('ams/views/form.php')));
-dashboardBtn.addEventListener('click', () => Navigate.push('ams/views/dashboard.html'));
+dashboardBtn.addEventListener('click', () => Navigate.push('ams/views/dashboard.PHP'));
 
 /** @param {*} ms - milliseconds */
 function wait(ms) { return new Promise(resolve => setTimeout(resolve, ms)) };

@@ -36,7 +36,10 @@ if (isset($_POST['submit'])) {
             $exists = $admin['exist'] >= 1;
 
             if (!$exists) {
-                // Insert an admin RECORD
+                // Hash the password
+                $password = password_hash($password, PASSWORD_DEFAULT);
+
+                // Create an admin
                 $sql = "INSERT INTO admins (email, password) VALUES ('$email', '$password')";
                 mysqli_query($conn, $sql);
                 header("location: /" . URL_SUBFOLDER . "/views/admin/login.php");
@@ -49,7 +52,10 @@ if (isset($_POST['submit'])) {
             $exists = $user['exist'] >= 1;
 
             if (!$exists) {
-                // INSERT a user RECORD
+                // Hash the password
+                $password = password_hash($password, PASSWORD_DEFAULT);
+
+                // Create a user
                 $sql = "INSERT INTO users (email, password, role) VALUES ('$email', '$password', 'student')";
                 mysqli_query($conn, $sql);
                 header("location: /" . URL_SUBFOLDER . "/views/auth/login.php");
