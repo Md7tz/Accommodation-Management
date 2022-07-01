@@ -1,14 +1,16 @@
 <?php session_start();
-include '../config/db.php';
-include '../config/utils.php';
-
+include '../../../config/db.php';
+include '../../../config/utils.php';
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 // Redirect to login if not authenticated
-if (!isset($_SESSION['user']) || (isset($_SESSION['user']) && $_SESSION['user']['role'] != 'student')) {
-    header("location: " . URL_ROOT . '/auth/login.php');
+if (!isset($_SESSION['admin'])) {
+    header("location: " . URL_ROOT . '/admin/auth/login.php');
 }
 // Profile handling
 if (isset($_GET['profile'])) {
-    $sql = "SELECT fname, lname, phoneNo, age, gender, users.email, COUNT(*) as count FROM profiles INNER JOIN users ON users.id=profiles.user_id WHERE profiles.user_id = " . $_SESSION['user']['id'];
+    $sql = "SELECT fname, lname, phoneNo, age, gender, admins.email, COUNT(*) as count FROM profiles INNER JOIN admins ON admins.id=profiles.user_id WHERE profiles.user_id = " . $_SESSION['admin']['id'];
     $result = mysqli_query($conn, $sql);
     $profile = mysqli_fetch_assoc($result);
 }
@@ -28,19 +30,19 @@ if (isset($_POST['submit'])) {
         && !empty($age) 
         && !empty($gender)) {
         // Check if profile already exists
-        $sql = "SELECT COUNT(*) as count FROM profiles WHERE profiles.user_id = " . $_SESSION['user']['id'];
+        $sql = "SELECT COUNT(*) as count FROM profiles WHERE profiles.user_id = " . $_SESSION['admin']['id'];
         $result = mysqli_query($conn, $sql);
         $profile = mysqli_fetch_assoc($result);
         if ((int)$profile['count'] == 0) {
             // Create new profile
-            $sql = "INSERT INTO profiles (fname, lname, phoneNo, age, gender, user_id) VALUES('$fname', '$lname', '$phoneNo', $age, '$gender', " . (int)$_SESSION['user']['id'] . ')';
+            $sql = "INSERT INTO profiles (fname, lname, phoneNo, age, gender, user_id) VALUES('$fname', '$lname', '$phoneNo', $age, '$gender', " . (int)$_SESSION['admin']['id'] . ')';
             $result = mysqli_query($conn, $sql);
         } else {
             // Update profile
             $sql = "UPDATE profiles SET fname = '$fname', lname = '$lname', phoneNo = '$phoneNo', age = $age, gender = '$gender'";
             $result = mysqli_query($conn, $sql);
         }
-        header("location: /" . URL_SUBFOLDER . "/views/dashboard.php?profile=" . $_SESSION['user']['id']);
+        header("location: /" . URL_SUBFOLDER . "/views/dashboard.php?profile=" . $_SESSION['admin']['id']);
     }
 }
 
@@ -49,19 +51,19 @@ if (isset($_POST['submit'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-<?php include '../inc/head.php' ?>
+<?php include '../../../inc/head.php' ?>
 <body class="bg-none">
     <div class="area container-fluid px-0 bg-white h-100 fw-bold">
         <header class="row justify-content-end bg-black mx-0">
-            <p class="w-fit m-0 p-2">Welcome <span class="text-primary"><?php echo $_SESSION['user']['email'] ?> </span></p>
+            <p class="w-fit m-0 p-2">Welcome <span class="text-primary"><?php echo $_SESSION['admin']['email'] ?> </span></p>
         </header>
 
         <?php if (isset($_GET['profile'])) : ?>
             <?php _include('../inc/profile.form.php', $profile)?>
         <?php endif ?>
 
-        <?php include '../inc/sidebar.php'?>
-        <?php include '../inc/scripts.php' ?>
+        <?php include '../../../inc/sidebar.php'?>
+        <?php include '../../../inc/scripts.php' ?>
 </body>
 
 </html>
