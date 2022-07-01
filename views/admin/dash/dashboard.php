@@ -59,7 +59,7 @@ if (isset($_POST['submit'])) {
         </header>
 
         <?php if (isset($_GET['profile'])) : ?>
-            <?php _include('../inc/profile.form.php', $profile)?>
+            <?php _include('../../../inc/profile.form.php', $profile)?>
         <?php endif ?>
 
         <?php include '../../../inc/sidebar.php'?>
