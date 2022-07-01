@@ -21,3 +21,6 @@ function _include($filePath, $variables = array(), $print = true)
     }
     return $output;
 }
+
+// MySQL compatible timestamp
+function _date(string $date) { return date("Y-m-d H:i:s", strtotime($date)); }
