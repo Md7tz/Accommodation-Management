@@ -27,6 +27,17 @@
                 </span>
             </a>
         </li>
+        <li class="has-subnav">
+
+            <?php if (isset($_SESSION['admin'])) : ?>
+                <a href="<?php echo htmlentities($_SERVER['PHP_SELF']) . "?application=" . $_SESSION['admin']['id'] ?>">
+            <?php endif?>
+                <i class="fa fa-list fa-2x"></i>
+                <span class="nav-text">
+                    Users
+                </span>
+            </a>
+        </li>
     </ul>
 
     <ul class="logout">
