@@ -7,24 +7,18 @@
 
         <div class="row">
             <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-12"> -->
-            <form class="needs-validation py-5" method="GET">
+            <form class="needs-validation py-5" action="<?php echo htmlentities($_SERVER['PHP_SELF']) ?>" method="POST">
                 <h4 class="mb-3">Student details</h4>
                 <div class="row g-3">
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                        <label for="firstName" class="form-label">First name</label>
-                        <input name="fname" type="text" class="form-control" id="firstName" value="" required>
-                        <div class="invalid-feedback">Valid first name is required.</div>
-                    </div>
-
-                    <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                        <label for="lastName" class="form-label">Last name</label>
-                        <input name="lname" type="text" class="form-control" id="lastName" value="" required>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                        <label for="name" class="form-label">Full name</label>
+                        <input name="name" type="text" class="form-control" id="name" value="" required>
                         <div class="invalid-feedback">Valid last name is required.</div>
                     </div>
 
                     <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                         <label for="rooms" class="form-label">No. of rooms</label>
-                        <select class="form-select" id="rooms" required>
+                        <select name="rooms" class="form-select" id="rooms" required>
                             <option value="">Choose...</option>
                             <option>1</option>
                             <option>2</option>
@@ -40,18 +34,18 @@
 
                     <div class="col-lg-6 col-md-6 col-sm-6 col-12">
                         <label for="budget" class="form-label">Monthly Budget</label>
-                        <input type="number" class="form-control" id="budget" required>
+                        <input name="budget" type="number" class="form-control" id="budget" required>
                         <div class="invalid-feedback">Budget is required.</div>
                     </div>
 
                     <div class="col-lg-6 col-md-6 col-sm-6 col-12 align-items-center">
                         <p>From</p>
-                        <input class='form-control' type="date" placeholder='from' name="from" />
+                        <input name="from" class='form-control' type="date" placeholder='from' name="from" />
                     </div>
 
                     <div class="col-lg-5 col-md-5 col-sm-5 col-10 align-items-center">
                         <p>To</p>
-                        <input class='form-control' type="date" placeholder='to' name="to" />
+                        <input name="to" class='form-control' type="date" placeholder='to' name="to" />
 
                     </div>
                     <div class="d-flex col-lg-1 col-md-1 col-sm-1 col-1 align-items-end justify-content-center">
@@ -68,7 +62,7 @@
 
                     <div class="d-flex col-lg-12 col-md-12 col-sm-12 col-12 align-items-end justify-content-center">
                         <hr class="mt-4">
-                        <button class="btn btn-outline-dark w-100" type="submit">Submit</button>
+                        <input class="btn btn-outline-dark w-100" type="submit" name="submit" value="Submit">
                     </div>
                 </div>
 
