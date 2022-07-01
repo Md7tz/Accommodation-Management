@@ -7,45 +7,46 @@ $notExist;
 
 // echo "<br>";
 
-    print_r($_POST);
-    # Validate Email
-    if (empty($_POST['email'])) {
-        $emailErr = true;
-    } else {
-        $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-    }
 
-    # Validate Password
-    if (empty($_POST['password'])) {
-        $passwordErr = true;
-    } else {
-        $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    }
+# Validate Email
+if (empty($_POST['email'])) {
+    $emailErr = true;
+} else {
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+}
+# Validate Password
+if (empty($_POST['password'])) {
+    $passwordErr = true;
+} else {
+    $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+}
+if (empty($emailErr) && empty($passwordErr)) {
+    
+    // Login admin if exists
+    $sql = "SELECT id, email, password, COUNT(*) AS count FROM admins WHERE email = '$email'";
+    $result = mysqli_query($conn, $sql);
+    $admin = mysqli_fetch_assoc($result);
+    
+    // Check if Email does not exist
+    $notExist = (int)$admin['count'] == 0;
+    
+    // Check if password does'nt match
+    $password = $admin['password'] == $password;
 
-    if (empty($emailErr) && empty($passwordErr)) {
-        
-        // Login admin if exists
-        $sql = "SELECT id, email, password, COUNT(*) AS count FROM admins WHERE email = '$email'";
-        $result = mysqli_query($conn, $sql);
-        $admin = mysqli_fetch_assoc($result);
-        
-        // Check if Email does not exist
-        $notExist = (int)$admin['count'] == 0;
-        
-        // Check if password does'nt match
-        $password = $admin['password'] == $password;
-       
-        
-      
 
         if (!$notExist && $password) {
-            echo "HI";
+
             $_SESSION['admin'] = array(
                 'id' => $admin['id'],
                 'email' => $admin['email']
             );
 
+            
+
             header("location: /" . URL_SUBFOLDER . "/views/index.php");
+        }
+        else{
+            echo "Wssup";
         }
     }
 

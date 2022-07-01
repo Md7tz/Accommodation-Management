@@ -6,7 +6,11 @@
 
         <div class="row">
             <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-12"> -->
-            <form class="needs-validation py-5" action="<?php echo htmlentities($_SERVER['PHP_SELF'] . "?profile=".$_SESSION['user']['id']); ?>" method="POST">
+            <?php if (isset($_SESSION['user'])) : ?>
+                <form class="needs-validation py-5" action="<?php echo htmlentities($_SERVER['PHP_SELF'] . "?profile=".$_SESSION['user']['id']); ?>" method="POST">
+            <?php elseif  (isset($_SESSION['admin'])): ?>
+                <form class="needs-validation py-5" action="<?php echo htmlentities($_SERVER['PHP_SELF'] . "?profile=".$_SESSION['admin']['id']); ?>" method="POST">
+            <?php endif; ?>
                 <h4 class="mb-3">Student details</h4>
                 <div class="row g-3">
                     <div class="col-lg-4 col-md-4 col-sm-4 col-12">

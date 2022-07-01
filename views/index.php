@@ -64,7 +64,7 @@ if (isset($_POST['submit'])) {
             }
         }
     } else {
-        // header('location: index.html');
+       
     }
 }
 
@@ -84,6 +84,7 @@ if (isset($_GET['logout'])) {
         <?php include '../inc/sidemenu.php' ?>
         <?php include '../inc/header.php' ?>
         <?php include '../inc/hero.php' ?>
+        
     </div>
     <?php include '../inc/footer.php' ?>
     <?php include '../inc/scripts.php' ?>

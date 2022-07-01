@@ -1,7 +1,12 @@
 <nav class="main-menu">
     <ul>
         <li class="has-subnav">
-            <a href="<?php echo htmlentities($_SERVER['PHP_SELF']) . "?application=" . $_SESSION['user']['id'] ?>">
+
+            <?php if (isset($_SESSION['admin'])) : ?>
+                <a href="<?php echo htmlentities($_SERVER['PHP_SELF']) . "?application=" . $_SESSION['admin']['id'] ?>">
+            <?php else : ?>
+                <a href="<?php echo htmlentities($_SERVER['PHP_SELF']) . "?application=" . $_SESSION['user']['id'] ?>">
+            <?php endif?>
                 <i class="fa fa-list fa-2x"></i>
                 <span class="nav-text">
                     Applications
@@ -9,7 +14,13 @@
             </a>
         </li>
         <li class="has-subnav">
-            <a href="<?php echo htmlentities($_SERVER['PHP_SELF']) . "?profile=" . $_SESSION['user']['id'] ?>">
+        <?php if (isset($_SESSION['admin'])) : ?>
+            <a href="<?php echo htmlentities($_SERVER['PHP_SELF']) . "?profile=" . $_SESSION['admin']['id'] ?>">
+            <?php else : ?>
+                <a href="<?php echo htmlentities($_SERVER['PHP_SELF']) . "?profile=" . $_SESSION['user']['id'] ?>">
+            <?php endif?>
+
+            
                 <i class="fa fa-user fa-2x"></i>
                 <span class="nav-text">
                     Profile

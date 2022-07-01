@@ -8,7 +8,7 @@
 
     <div class="d-flex col justify-content-end" id="dropdown-container">
         <?php if (isset($_SESSION['user']) || isset($_SESSION['admin'])) include_once '../inc/dropdown.php'?>
-        <?php if (!isset($_SESSION['user']) || !isset($_SESSION['admin']))
+        <?php if (!isset($_SESSION['user']))
             echo '<a id="login-btn" class="btn btn-sm btn-outline-light ms-3">Login</a>'
         ?>
     </div>
