@@ -1,6 +1,7 @@
 <?php session_start();
 include '../config/db.php';
 include '../config/utils.php';
+include '../config/constants.php';
 
 // Redirect to login if not authenticated
 if (!isset($_SESSION['user']) || (isset($_SESSION['user']) && $_SESSION['user']['role'] != 'student')) {
@@ -12,6 +13,7 @@ if (isset($_GET['profile'])) {
     $sql = "SELECT fname, lname, phoneNo, age, gender, users.email, COUNT(*) as count FROM profiles INNER JOIN users ON users.id=profiles.user_id WHERE profiles.user_id = " . $_SESSION['user']['id'];
     $result = mysqli_query($conn, $sql);
     $profile = mysqli_fetch_assoc($result);
+    setcookie('name', $profile['fname'], time() + (86400 * 30), "/");
 }
 
 if (isset($_POST['submit'])) {
@@ -45,6 +47,9 @@ if (isset($_POST['submit'])) {
     }
 }
 
+// Application listing
+$query = "SELECT * FROM applications";
+$result = $conn->query($query);
 
 ?>
 
@@ -54,11 +59,13 @@ if (isset($_POST['submit'])) {
 <body class="bg-none">
     <div class="area container-fluid px-0 bg-white h-100 fw-bold">
         <header class="row justify-content-end bg-black mx-0">
-            <p class="w-fit m-0 p-2">Welcome <span class="text-primary"><?php echo $_SESSION['user']['email'] ?> </span></p>
+            <p class="w-fit m-0 p-2">Welcome <span class="text-primary"><?php if(empty($_COOKIE['name'])) echo $_SESSION['user']['email']; else echo $_COOKIE['name']; ?> </span></p>
         </header>
 
         <?php if (isset($_GET['profile'])) : ?>
             <?php _include('../inc/profile.form.php', $profile)?>
+        <?php elseif (isset($_GET['application'])) : ?>
+            <?php include('../inc/application.table.php')?>
         <?php endif ?>
 
         <?php include '../inc/sidebar.php'?>
