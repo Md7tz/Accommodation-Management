@@ -41,10 +41,12 @@
 
     <ul class="logout">
         <li>
-            <a href="<?php echo "index.php?logout=true"; ?>">
+            <a href="<?php echo constant('URL_ROOT') . "/index.php?logout=true"; ?>">
                 <i class="fa fa-power-off fa-2x"></i>
                 <span class="nav-text">
                     Sign out
+                    <!-- 'URL_ROOT'
+                    echo constant('URL_SUBFOLDER') -->
                 </span>
             </a>
         </li>

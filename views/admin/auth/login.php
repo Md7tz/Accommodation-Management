@@ -82,7 +82,6 @@ if (empty($emailErr) && empty($passwordErr)) {
 
                             <div class="text-center mb-3">
                                 <button type="submit" class="btn btn-dark me-3">Login</button>
-                                <a id="register-btn" class="btn btn-outline-primary">Register</a>
                             </div>
                         </div>
                     </form>
