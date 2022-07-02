@@ -12,7 +12,9 @@ if (isset($_GET['profile'])) {
     $sql = "SELECT fname, lname, phoneNo, age, gender, users.email, COUNT(*) as count FROM profiles INNER JOIN users ON users.id=profiles.user_id WHERE profiles.user_id = " . $_SESSION['user']['id'];
     $result = mysqli_query($conn, $sql);
     $profile = mysqli_fetch_assoc($result);
-    setcookie('name', $profile['fname'], time() + (86400 * 30), "/");
+    if (isset($profile['fname'])) {
+        setcookie('name', $profile['fname'], time() + (86400 * 30), "/");
+    }
 }
 
 if (isset($_POST['submit'])) {

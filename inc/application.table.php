@@ -12,7 +12,9 @@
                     <th scope="col">Stay To</th>
                     <th scope="col">Details</th>
                     <th scope="col">Status</th>
+                    <?php if (strstr($_SERVER['REQUEST_URI'], "admin") || $_SESSION['user']['role']=="manager") : ?>
                     <th scope="col">Action</th>
+                    <?php endif; ?>
                 </tr>
             </thead>
             <tbody>
