@@ -47,7 +47,8 @@ if (isset($_POST['submit'])) {
 }
 
 // Application listing
-$query = "SELECT * FROM applications";
+$id = $_SESSION['user']['id'];
+$query = "SELECT * FROM applications WHERE user_id = $id";
 $result = $conn->query($query);
 
 ?>
