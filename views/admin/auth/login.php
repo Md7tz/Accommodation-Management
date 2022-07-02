@@ -46,7 +46,7 @@ if (empty($emailErr) && empty($passwordErr)) {
             header("location: /" . URL_SUBFOLDER . "/views/index.php");
         }
         else{
-            echo "Wssup";
+            // echo "Wssup";
         }
     }
 

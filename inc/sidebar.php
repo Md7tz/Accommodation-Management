@@ -3,7 +3,7 @@
         <li class="has-subnav">
 
             <?php if (isset($_SESSION['admin'])) : ?>
-                <a href="<?php echo htmlentities($_SERVER['PHP_SELF']) . "?application=" . $_SESSION['admin']['id'] ?>">
+                <a href="<?php echo htmlentities($_SERVER['PHP_SELF']) . "?table=applications" ?>">
             <?php else : ?>
                 <a href="<?php echo htmlentities($_SERVER['PHP_SELF']) . "?application=" . $_SESSION['user']['id'] ?>">
             <?php endif?>
@@ -13,32 +13,30 @@
                 </span>
             </a>
         </li>
-        <li class="has-subnav">
-
-            <?php if (isset($_SESSION['admin'])) : ?>
-                <a href="<?php echo htmlentities($_SERVER['PHP_SELF']) . "?application=" . $_SESSION['admin']['id'] ?>">
-            <?php endif?>
-                <i class="fa fa-list fa-2x"></i>
-                <span class="nav-text">
-                    Users
-                </span>
-            </a>
-        </li>
-        <li class="has-subnav">
         <?php if (isset($_SESSION['admin'])) : ?>
-            <a href="<?php echo htmlentities($_SERVER['PHP_SELF']) . "?profile=" . $_SESSION['admin']['id'] ?>">
-            <?php else : ?>
+        <li class="has-subnav">
+
+                <a href="<?php echo htmlentities($_SERVER['PHP_SELF']) . "?table=users"?>">
+                    <i class="fa fa-list fa-2x"></i>
+                    <span class="nav-text">
+                        Users
+                    </span>
+                </a>
+            </li>
+        <?php endif?>
+        <?php if (!isset($_SESSION['admin'])) : ?>
+        <li class="has-subnav">
                 <a href="<?php echo htmlentities($_SERVER['PHP_SELF']) . "?profile=" . $_SESSION['user']['id'] ?>">
+                    
+                    
+                    <i class="fa fa-user fa-2x"></i>
+                    <span class="nav-text">
+                        Profile
+                    </span>
+                </a>
+            </li>
             <?php endif?>
-
             
-                <i class="fa fa-user fa-2x"></i>
-                <span class="nav-text">
-                    Profile
-                </span>
-            </a>
-        </li>
-
     </ul>
 
     <ul class="logout">
