@@ -31,9 +31,8 @@ if (isset($_GET['user'])) {
         header("location: /" . URL_SUBFOLDER . "/views/admin/dashboard.php?user=true");
     }
 } elseif (isset($_GET['add'])) {
-    $sql = "INSERT INTO";
-    print_r($_POST);
-    if (isset($_POST['value'])){
+    //  Admins and managers handling
+    if (isset($_POST['add'])){
         $email = $_POST['email'];
         $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
@@ -52,7 +51,19 @@ if (isset($_GET['user'])) {
                 $result = mysqli_query($conn, $sql);
         }
         }else{
-
+            // Check if user already exists
+            $sql = "SELECT COUNT(*) as count FROM users WHERE users.email = '$email'" ;
+            $result = mysqli_query($conn, $sql);
+            $user = mysqli_fetch_assoc($result);
+            if ((int)$user['count'] == 0) {
+                // Create new manager
+                $sql = "INSERT INTO users (email, password, role) VALUES ( '$email', '$password', 'manager')";
+                $result = mysqli_query($conn, $sql);
+            } else {
+                // Update user
+                $sql = "UPDATE users SET email = '$email', password = '$password', role='manager'";
+                $result = mysqli_query($conn, $sql);
+        }
         }
     }
 
