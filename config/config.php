@@ -1,9 +1,10 @@
 <?php 
-// site name
-define('SITE_NAME', 'accommodation-management');
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+
+// site name
+define('SITE_NAME', 'accommodation-management');
 // App root
 define('APP_ROOT', dirname(dirname(__FILE__)));
 define('URL_SUBFOLDER', 'ams');

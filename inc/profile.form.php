@@ -1,18 +1,11 @@
 <main class="bg-white">
-    <section class="container">
-        <div class="py-3">
+    <section class="container-fluid">
+        <div class="mx-5 px-5 py-3">
             <h1>Profile</h1>
         </div>
 
-        <div class="row">
-            <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-12"> -->
-            <?php if (isset($_SESSION['user'])) : ?>
+        <div class="row mx-5 px-5">
                 <form class="needs-validation py-5" action="<?php echo htmlentities($_SERVER['PHP_SELF'] . "?profile=".$_SESSION['user']['id']); ?>" method="POST">
-                <h4 class="mb-3">Student details</h4>
-            <?php elseif  (isset($_SESSION['admin'])): ?>
-                <form class="needs-validation py-5" action="<?php echo htmlentities($_SERVER['PHP_SELF'] . "?profile=".$_SESSION['admin']['id']); ?>" method="POST">
-                <h4 class="mb-3">Admin details</h4>
-            <?php endif; ?>
             
                 <div class="row g-3">
                     <div class="col-lg-4 col-md-4 col-sm-4 col-12">
@@ -61,7 +54,6 @@
                 </div>
 
             </form>
-            <!-- </div> -->
         </div>
     </section>
 </main>

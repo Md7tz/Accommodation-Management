@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
                 // Create an admin
                 $sql = "INSERT INTO admins (email, password) VALUES ('$email', '$password')";
                 mysqli_query($conn, $sql);
-                header("location: /" . URL_SUBFOLDER . "/views/admin/login.php");
+                header("location: /" . URL_SUBFOLDER . "/views/admin/auth/login.php");
             }
         } else {
             // Check if user already exists
@@ -63,8 +63,6 @@ if (isset($_POST['submit'])) {
                 header("location: /" . URL_SUBFOLDER . "/views/auth/login.php");
             }
         }
-    } else {
-       
     }
 }
 

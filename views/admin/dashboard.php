@@ -1,16 +1,10 @@
 <?php session_start();
 include '../../config/db.php';
 include '../../config/utils.php';
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
-// Redirect to login if not authenticated
+
 if (!isset($_SESSION['admin'])) {
     header("location: " . URL_ROOT . '/admin/auth/login.php');
 }
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -23,19 +17,7 @@ if (!isset($_SESSION['admin'])) {
             <p class="w-fit m-0 p-2">Welcome <span class="text-primary"><?php echo $_SESSION['admin']['email'] ?> </span></p>
         </header>
 
-        <?php 
-
-        if (isset($_GET['table'])) {
-
-           include $_GET['table']. '.php';
-
-        }
-        else{
-
-            include 'applications.php';
-        }
-        ?>
-
+        <!-- users & application listing -->
 
         <?php include '../../inc/sidebar.php'?>
         <?php include '../../inc/scripts.php' ?>
