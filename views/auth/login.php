@@ -38,6 +38,7 @@ if (isset($_POST['submit'])) {
                 'id' => $user['id'],
                 'email' => $user['email'],
                 'role' => $user['role']
+                
             );
 
             header("location: /" . URL_SUBFOLDER . "/views/index.php");
@@ -73,7 +74,8 @@ if (isset($_POST['submit'])) {
                             <div class="col-12 mb-3">
                                 <label class="mb-2">Password</label>
                                 <input type="password" name="password" class="form-control" placeholder="Enter your password" required minlength="6" />
-                                <!-- <a href="#" class="float-end text-muted">Forgot password?</a> -->
+                                <a class = "float-end text-muted" href="/<?php echo constant('URL_SUBFOLDER') ?>/views/admin/auth/login.php" >Admin?</a>
+                                
                             </div>
 
                             <div class="text-center mb-3">

@@ -1,6 +1,6 @@
 <main class="container col-xl-10 col-xxl-8 px-4 py-5 my-3">
     <div class="row align-items-center g-lg-5 py-5">
-        <?php if (!isset($_SESSION['user'])) : ?>
+        <?php if (!isset($_SESSION['user']) & !isset($_SESSION['admin'])) : ?>
             <div class="col-lg-7 text-center text-lg-start">
                 <h1 class="display-4 fw-bold lh-1 mb-3">Sign up to find our best deals</h1>
                 <p class="col-lg-10 fs-4">Students are able to find luxury and comfort within one place. with our best deals!</p>
@@ -25,6 +25,12 @@
                     <hr class="my-4">
                     <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
                 </form>
+            </div>
+            <?php elseif (isset($_SESSION['admin']) & !isset($_SESSION['user'])) :?>
+
+            <div class="col-lg-12 text-center text-lg-start">
+                <h1 class="display-4 fw-bold lh-1 mb-3">Welcome <span class="text-danger"><?php echo $_SESSION['admin']['email'] ?></span></h1>
+                
             </div>
         <?php else : ?>
             <div class="col-lg-12 text-center text-lg-start">

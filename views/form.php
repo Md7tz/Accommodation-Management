@@ -3,6 +3,7 @@ include '../config/db.php';
 include '../config/utils.php';
 
 // Redirect to login if not authenticated
+
 if (!isset($_SESSION['user']) || (isset($_SESSION['user']) && $_SESSION['user']['role'] != 'student')) {
     header("location: " . URL_ROOT . '/auth/login.php');
 }

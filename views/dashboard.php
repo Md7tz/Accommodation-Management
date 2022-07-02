@@ -7,7 +7,6 @@ include '../config/constants.php';
 if (!isset($_SESSION['user']) || (isset($_SESSION['user']) && $_SESSION['user']['role'] != 'student')) {
     header("location: " . URL_ROOT . '/auth/login.php');
 }
-
 // Profile handling
 if (isset($_GET['profile'])) {
     $sql = "SELECT fname, lname, phoneNo, age, gender, users.email, COUNT(*) as count FROM profiles INNER JOIN users ON users.id=profiles.user_id WHERE profiles.user_id = " . $_SESSION['user']['id'];
