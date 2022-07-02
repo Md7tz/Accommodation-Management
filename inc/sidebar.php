@@ -18,7 +18,33 @@
                 </a>
             </li>
         </ul>
-    <?php elseif (isset($_SESSION['admin'])) : ?>
+    <?php elseif (isset($_SESSION['admin'])): ?>
+        <ul>
+            <li class="has-subnav">
+                <a href="<?php echo htmlentities($_SERVER['PHP_SELF']) . "?application=true" ?>">
+                    <i class="fa fa-list fa-2x"></i>
+                    <span class="nav-text">
+                        Applications
+                    </span>
+                </a>
+            </li>
+            <li class="has-subnav">
+                <a href="<?php echo htmlentities($_SERVER['PHP_SELF']) . "?user=true" ?>">
+                    <i class="fa fa-users fa-2x"></i>
+                    <span class="nav-text">
+                        Users
+                    </span>
+                </a>
+            </li>
+            <li class="has-subnav">
+                <a href="<?php echo htmlentities($_SERVER['PHP_SELF']) . "?add=true" ?>">
+                <i class="fa fa-user"></i>
+                    <span class="nav-text">
+                        Add User
+                    </span>
+                </a>
+            </li>
+        </ul>
     <?php endif; ?>
 
     <ul class="logout">

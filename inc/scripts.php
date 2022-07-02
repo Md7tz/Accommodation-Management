@@ -4,8 +4,7 @@
 
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
-<?php if (strstr($_SERVER['REQUEST_URI'], "application")) : ?>
-        
+<?php if (strstr($_SERVER['REQUEST_URI'], "/dashboard")) : ?>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script> 
     <script>
         // Awesome JS Code Goes here
