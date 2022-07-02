@@ -8,13 +8,10 @@
     <link rel="stylesheet" type="text/css" href="/<?php echo constant('URL_SUBFOLDER') ?>/public/css/cookies.css">
     <?php if (strstr($_SERVER['REQUEST_URI'], "dashboard.php")) : ?>
         <link rel="stylesheet" type="text/css" href="/<?php echo constant('URL_SUBFOLDER') ?>/public/css/dashboard.css">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">  
     <?php endif; ?>
     <?php if (strstr($_SERVER['REQUEST_URI'], "auth")) : ?>
         <link rel="stylesheet" type="text/css" href="/<?php echo constant('URL_SUBFOLDER') ?>/public/css/cube.css">
-    <?php endif; ?>
-    <?php if (strstr($_SERVER['REQUEST_URI'], "application")) : ?>
-        <!-- DataTable CSS -->
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">  
     <?php endif; ?>
         
     <title>AMS</title>

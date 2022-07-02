@@ -32,7 +32,7 @@ if (isset($_POST['submit'])) {
         // Check if password doesn't match
         $hashed_password = $admin['password'];
         $notExist = !password_verify($password, $hashed_password);
-
+        
         if (!$notExist) {
             $_SESSION['admin'] = array(
                 'id' => $admin['id'],
@@ -72,7 +72,6 @@ if (isset($_POST['submit'])) {
                             <div class="col-12 mb-3">
                                 <label class="mb-2">Password</label>
                                 <input type="password" name="password" class="form-control" placeholder="Enter your password" required minlength="6" />
-                                <!-- <a href="#" class="float-end text-muted">Forgot password?</a> -->
                             </div>
 
                             <div class="text-center mb-3">
