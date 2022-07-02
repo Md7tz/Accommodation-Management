@@ -29,7 +29,7 @@
                         <td><?php echo $row['stay_to'] ?></td>
                         <td><?php echo $row['details'] ?></td>
                         <td><span class="<?php echo StatusCss[$row['status']] ?>"><?php echo ApplicationStatus[(int)$row['status']] ?></span></td>
-                        <?php if (strstr($_SERVER['REQUEST_URI'], "admin")) : ?>
+                        <?php if (strstr($_SERVER['REQUEST_URI'], "admin") || $_SESSION['user']['role']=="manager") : ?>
                             <td>
                                 <div class="btn-group">
                                     <input type="submit" class="fw-bold btn btn-sm btn-outline-danger" name="delete" value="delete">

@@ -4,7 +4,7 @@ include '../config/utils.php';
 include '../config/constants.php';
 
 // Redirect to login if not authenticated
-if (!isset($_SESSION['user']) || (isset($_SESSION['user']) && $_SESSION['user']['role'] != 'student')) {
+if (!isset($_SESSION['user'])) {
     header("location: " . URL_ROOT . '/auth/login.php');
 }
 // Profile handling

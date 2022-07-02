@@ -31,7 +31,9 @@ if (isset($_POST['submit'])) {
 
         // Check if password doesn't match
         $hashed_password = $admin['password'];
-        $notExist = !password_verify($password, $hashed_password);
+        if (!empty($hash_password)) {
+            $notExist = !password_verify($password, $hashed_password);
+        }
         
         if (!$notExist) {
             $_SESSION['admin'] = array(
@@ -41,6 +43,8 @@ if (isset($_POST['submit'])) {
 
             header("location: /" . URL_SUBFOLDER . "/views/index.php");
         }
+    }else{
+
     }
 }
 

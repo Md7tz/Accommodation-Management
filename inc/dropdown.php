@@ -6,7 +6,7 @@
         <?php if (isset($_SESSION['user']) && !isset($_SESSION['admin'])) : ?>
         <li><a class="dropdown-item" href="<?php echo constant('URL_ROOT') . "/dashboard.php?profile=" . $_SESSION['user']['id'] ?>">Dashboard</a></li>
         <?php elseif (!isset($_SESSION['user']) && isset($_SESSION['admin'])) : ?>
-        <li><a class="dropdown-item" href="<?php echo constant('URL_ROOT') . "/admin/dashboard.php"?>">Dashboard</a></li>
+        <li><a class="dropdown-item" href="<?php echo constant('URL_ROOT') . "/admin/dashboard.php?application=true"?>">Dashboard</a></li>
         <?php endif?>
         <li><a class="dropdown-item" href="<?php echo "index.php?logout=true"; ?>">Sign out</a></li>
     </ul>
