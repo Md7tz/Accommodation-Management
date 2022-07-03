@@ -6,7 +6,7 @@
                 <p class="col-lg-10 fs-4">Students are able to find luxury and comfort within one place. with our best deals!</p>
             </div>
             <div id="register-form" class="col-md-10 mx-auto col-lg-5 text-dark">
-                <form class="p-4 p-md-5 border rounded-3 bg-light" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
+                <form name="register" class="p-4 p-md-5 border rounded-3 bg-light" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
                     <div class="form-floating mb-3">
                         <input type="email" name="email" class="form-control <?php if ($exists) echo "is-invalid" ?>" id="floatingInput" placeholder="name@example.com" required>
                         <label for="floatingInput">Email address</label>
@@ -16,12 +16,7 @@
                         <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" required minlength="6">
                         <label for="floatingPassword">Password</label>
                     </div>
-                    <div class="checkbox mb-3">
-                        <label>
-                            <input type="checkbox" value="remember-me"> Remember me
-                        </label>
-                    </div>
-                    <input class="w-100 btn btn-lg btn-primary" type="submit" name="submit" value="Sign up">
+                    <input id="submit-form" class="w-100 btn btn-lg btn-primary" type="submit" name="submit" onClick="return validatePassword(document.register.password);" value="Sign up">
                     <hr class="my-4">
                     <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
                 </form>
