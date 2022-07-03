@@ -88,5 +88,16 @@ if (isset($_GET['logout'])) {
     </div>
     <?php include '../inc/footer.php' ?>
     <?php include '../inc/scripts.php' ?>
+    <script>
+        function validatePassword(input) { 
+            let pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+            if(input.value.match(pattern)) { 
+                return true;
+            } else { 
+                alert('Input Password and Submit [8 to 15 characters which contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character]')
+                return false;
+            }
+        } 
+    </script>
 </body>
 </html>
