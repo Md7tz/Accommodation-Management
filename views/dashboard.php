@@ -18,36 +18,60 @@ if (isset($_GET['profile'])) {
 }
 
 if (isset($_POST['submit'])) {
-    $fname = $lname = $phoneNo = $age = $gender = "";
+   
 
-    $fname = filter_input(INPUT_POST, 'fname', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $lname = filter_input(INPUT_POST, 'lname', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $phoneNo = filter_input(INPUT_POST, 'phoneNo', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $age = filter_input(INPUT_POST, 'age', FILTER_SANITIZE_NUMBER_INT);
-    $gender = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    if (isset($_GET['profile'])) {
+        $fname = $lname = $phoneNo = $age = $gender = "";
 
-    if (
-        !empty($fname)
-        && !empty($lname)
-        && !empty($phoneNo)
-        && !empty($age)
-        && !empty($gender)
-    ) {
-        // Check if profile already exists
-        $sql = "SELECT COUNT(*) as count FROM profiles WHERE profiles.user_id = " . $_SESSION['user']['id'];
-        $result = mysqli_query($conn, $sql);
-        $profile = mysqli_fetch_assoc($result);
-        if ((int)$profile['count'] == 0) {
-            // Create new profile
-            $sql = "INSERT INTO profiles (fname, lname, phoneNo, age, gender, user_id) VALUES('$fname', '$lname', '$phoneNo', $age, '$gender', " . (int)$_SESSION['user']['id'] . ')';
+        $fname = filter_input(INPUT_POST, 'fname', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $lname = filter_input(INPUT_POST, 'lname', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $phoneNo = filter_input(INPUT_POST, 'phoneNo', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $age = filter_input(INPUT_POST, 'age', FILTER_SANITIZE_NUMBER_INT);
+        $gender = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+        if (
+            !empty($fname)
+            && !empty($lname)
+            && !empty($phoneNo)
+            && !empty($age)
+            && !empty($gender)
+        ) {
+            // Check if profile already exists
+            $sql = "SELECT COUNT(*) as count FROM profiles WHERE profiles.user_id = " . $_SESSION['user']['id'];
             $result = mysqli_query($conn, $sql);
-        } else {
-            // Update profile
-            $sql = "UPDATE profiles SET fname = '$fname', lname = '$lname', phoneNo = '$phoneNo', age = $age, gender = '$gender'";
-            $result = mysqli_query($conn, $sql);
+            $profile = mysqli_fetch_assoc($result);
+            if ((int)$profile['count'] == 0) {
+                // Create new profile
+                $sql = "INSERT INTO profiles (fname, lname, phoneNo, age, gender, user_id) VALUES('$fname', '$lname', '$phoneNo', $age, '$gender', " . (int)$_SESSION['user']['id'] . ')';
+                $result = mysqli_query($conn, $sql);
+            } else {
+                // Update profile
+                $sql = "UPDATE profiles SET fname = '$fname', lname = '$lname', phoneNo = '$phoneNo', age = $age, gender = '$gender'";
+                $result = mysqli_query($conn, $sql);
+            }
+            header("location: /" . URL_SUBFOLDER . "/views/dashboard.php?profile=" . $_SESSION['user']['id']);
         }
-        header("location: /" . URL_SUBFOLDER . "/views/dashboard.php?profile=" . $_SESSION['user']['id']);
-    }
+        
+    } 
+}
+
+// Manager's CRUD
+if (isset($_POST['delete'])) {
+    $id = (int)$_POST['id'];
+    $sql = "DELETE from applications WHERE id=$id";
+    mysqli_query($conn, $sql);
+
+    header("location: /" . URL_SUBFOLDER . "/views/dashboard.php?application=true");
+} elseif (isset($_POST['accept'])) {
+    $id = (int)$_POST['id'];
+    $sql = "UPDATE applications SET status=1 WHERE id=$id";
+    mysqli_query($conn, $sql);
+    header("location: /" . URL_SUBFOLDER . "/views/dashboard.php?application=true");
+} elseif (isset($_POST['reject'])) {
+    $id = (int)$_POST['id'];
+    $sql = "UPDATE applications SET status=0 WHERE id=$id";
+    mysqli_query($conn, $sql);
+    header("location: /" . URL_SUBFOLDER . "/views/dashboard.php?application=true");
 }
 
 // Application listing
