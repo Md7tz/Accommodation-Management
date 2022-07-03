@@ -22,7 +22,7 @@ nav.main-menu.expanded {
 }
 
 .main-menu {
-    background: #212121;
+    background: black;
     border-right: 1px solid #e5e5e5;
     position: absolute;
     top: 0;
@@ -131,4 +131,31 @@ nav.main-menu li.active>a,
     background: #e2e2e2;
     width: 100%;
     height: 100%;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#heading {
+    margin: 0 7% 0 7%;
+    margin-top: 33px;
+    padding: 24px;
+    font-weight: 300;
+    font-style: 32px;
+    letter-spacing: 8px;
+}
+
+#heading::after {
+    content: "";
+    display: flex;
+    border-top: 1px solid #585858;
+    margin-top: 16px;
+}
+
+input[type=search], select{
+    padding: 1px;
+    border: 1px solid black;
 }

@@ -1,21 +1,23 @@
 import LocalStorage, { SessionStorage } from './SyncStorage.js';
 import Navigate from './Navigate.js'
-import Toast  from './Toast.js';
+import Toast from './Toast.js';
 import Cookie from './Cookie.js';
 
 let timeout = null;
 let _search = "";
 
-/* Cookies */
-/* popup button handler */
-Cookie.on('.cookie-popup button', 'click', () => {
-    Cookie.el('.cookie-popup').classList.add('cookie-popup--accepted');
-    document.cookie = `cookie-accepted=true`
-});
+if (window.location.pathname === "/ams/views/index.php") {
+    /* Cookies */
+    /* popup button handler */
+    Cookie.on('.cookie-popup button', 'click', () => {
+        Cookie.el('.cookie-popup').classList.add('cookie-popup--accepted');
+        document.cookie = `cookie-accepted=true`
+    });
 
-/* popup init handler */
-if (Cookie.cookie('cookie-accepted') !== "true") {
-    Cookie.el('.cookie-popup').classList.add('cookie-popup--not-accepted');
+    /* popup init handler */
+    if (Cookie.cookie('cookie-accepted') !== "true") {
+        Cookie.el('.cookie-popup').classList.add('cookie-popup--not-accepted');
+    }
 }
 
 // Dom elements
@@ -24,16 +26,16 @@ const searchInput = document.getElementById("searchbar") || empty;
 const home = document.getElementById('brand-link') || empty;
 const loginBtn = document.getElementById('login-btn') || empty;
 const registerBtn = document.getElementById('register-btn') || empty;
-const formBtn = document.getElementById('form-btn') || empty;
+const formBtn = document.querySelectorAll('.form-btn') || empty;
 const dashboardBtn = document.getElementById('dashboard-btn') || empty;
 
 // Event Listeners
-home.addEventListener('click', ()=>Navigate.push('views/'))
+home.addEventListener('click', () => Navigate.push('ams/views/'));
 searchInput.addEventListener('keyup', searchHandler);
-loginBtn.addEventListener('click', ()=>Navigate.push('views/auth/login.html'))
-registerBtn.addEventListener('click', ()=>Navigate.push('views/index.html#register-form'))
-formBtn.addEventListener('click', ()=>Navigate.push('views/form.html'))
-dashboardBtn.addEventListener('click', ()=>Navigate.push('views/dashboard.html'))
+loginBtn.addEventListener('click', () => Navigate.push('ams/views/auth/login.php'));
+registerBtn.addEventListener('click', () => Navigate.push('ams/views/index.php#register-form'));
+formBtn.forEach(btn => btn.addEventListener('click', () => Navigate.push('ams/views/form.php')));
+dashboardBtn.addEventListener('click', () => Navigate.push('ams/views/dashboard.php'));
 
 /** @param {*} ms - milliseconds */
 function wait(ms) { return new Promise(resolve => setTimeout(resolve, ms)) };
