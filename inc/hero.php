@@ -26,19 +26,19 @@
                     <small class="text-muted">By clicking Sign up, you agree to the terms of use.</small>
                 </form>
             </div>
-            <?php elseif (isset($_SESSION['admin']) && !isset($_SESSION['user'])) :?>
-
+        <?php elseif (isset($_SESSION['admin']) && !isset($_SESSION['user'])) : ?>
             <div class="col-lg-12 text-center text-lg-start">
                 <h1 class="display-4 fw-bold lh-1 mb-3">Welcome <span class="text-danger"><?php echo $_SESSION['admin']['email'] ?></span></h1>
-                
             </div>
-        <?php else : ?>
+        <?php elseif (isset($_SESSION['user'])) : ?>
             <div class="col-lg-12 text-center text-lg-start">
                 <h1 class="display-4 fw-bold lh-1 mb-3">Welcome <span class="text-danger"><?php echo $_SESSION['user']['email'] ?></span></h1>
+                <?php if ($_SESSION['user']['role'] == "student") : ?>
                 <div class="d-flex">
                     <h4 class="">Click book now to apply for an <span class="text-success">acommodation request</span></h4>
                     <button class="btn btn-secondary btn-sm mx-3 form-btn">Book now</button>
                 </div>
+                <?php endif; ?>
             </div>
         <?php endif; ?>
     </div>

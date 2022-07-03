@@ -13,7 +13,7 @@ if (isset($_GET['profile'])) {
     $result = mysqli_query($conn, $sql);
     $profile = mysqli_fetch_assoc($result);
     if (isset($profile['fname'])) {
-        setcookie('name', $profile['fname'], time() + (86400 * 30), "/");
+        setcookie('name', $profile['fname'], time() + (86400 * 30), '/');
     }
 }
 

@@ -33,7 +33,6 @@ if (isset($_POST['submit'])) {
         && !empty($budget)
         && !empty($from)
         && !empty($to)
-        && !empty($details)
     ) {
         // Create Application
         $sql = <<<SQL

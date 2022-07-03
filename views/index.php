@@ -2,6 +2,7 @@
 
 // remove all session variables
 session_start();
+session_reset();
 
 $email = $password = "";
 $emailErr = $passwordErr = "";
@@ -68,6 +69,7 @@ if (isset($_POST['submit'])) {
 
 if (isset($_GET['logout'])) {
     $logout = (bool)filter_input(INPUT_GET, 'logout', FILTER_SANITIZE_URL);
+    setcookie('name', '', time() - 86400, '/');
     session_destroy();
     header("location: " . URL_ROOT);
 }

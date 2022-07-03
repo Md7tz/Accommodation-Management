@@ -1,6 +1,7 @@
 <?php include "../../../config/db.php";
-session_start();
 
+session_start();
+session_reset();
 
 $email = $password = "";
 $emailErr = $passwordErr = "";

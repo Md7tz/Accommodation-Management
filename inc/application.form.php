@@ -6,7 +6,6 @@
         </div>
 
         <div class="row">
-            <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-12"> -->
             <form class="needs-validation py-5" action="<?php echo htmlentities($_SERVER['PHP_SELF']) ?>" method="POST">
                 <h4 class="mb-3">Student details</h4>
                 <div class="row g-3">
@@ -40,13 +39,12 @@
 
                     <div class="col-lg-6 col-md-6 col-sm-6 col-12 align-items-center">
                         <p>From</p>
-                        <input name="from" class='form-control' type="date" placeholder='from' name="from" />
+                        <input name="from" class='form-control' type="date" placeholder='from' name="from" required/>
                     </div>
 
                     <div class="col-lg-5 col-md-5 col-sm-5 col-10 align-items-center">
                         <p>To</p>
-                        <input name="to" class='form-control' type="date" placeholder='to' name="to" />
-
+                        <input name="to" class='form-control' type="date" placeholder='to' name="to" required/>
                     </div>
                     <div class="d-flex col-lg-1 col-md-1 col-sm-1 col-1 align-items-end justify-content-center">
                         <button type="button" class="btn btn-link p-2">
@@ -67,7 +65,6 @@
                 </div>
 
             </form>
-            <!-- </div> -->
         </div>
     </section>
 </main>
